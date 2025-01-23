@@ -22,7 +22,7 @@ const Navbar = async() => {
             <Link href='/dashboard'>Profile</Link>
           </li>
           <li>
-            <LogoutLink>Logout</LogoutLink>
+            <LogoutLink postLogoutRedirectURL="/login" >Logout</LogoutLink>
           </li>
           </>:<>
           <li>
