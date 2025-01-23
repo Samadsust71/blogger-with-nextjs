@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "Blogger",
+  title: "Home | Blogger",
   description: "A simple blog viewer application",
 };
 
@@ -23,13 +23,17 @@ export default function RootLayout({ children }) {
   return (
     <AuthProvider>
       <html lang="en">
+        <head>
+          <title>{metadata.title}</title>
+          <meta name="description" content={metadata.description} />
+        </head>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <header>
             <Navbar />
           </header>
-          <main className="min-h-[calc(100vh-190px)] container mx-auto">
+          <main className="min-h-[calc(100vh-190px)] container mx-auto sm:w-11/12">
             {children}
           </main>
           <footer>
