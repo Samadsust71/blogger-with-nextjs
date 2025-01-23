@@ -3,9 +3,8 @@ import getPost from "@/lib/getPost";
 
 
 const Post = async ({params}) => {
-    const { id } = params;
+    const { id } = await params;
     const post = await getPost(id);
-    console.log(post)
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import {RegisterLink, LoginLink,LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import { LoginLink,LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 
@@ -7,6 +7,7 @@ import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 const Navbar = async() => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
+  
   return (
     <div className="bg-gray-900 text-white">
         <nav  className="flex justify-between container mx-auto py-5">
@@ -21,15 +22,13 @@ const Navbar = async() => {
             <Link href='/dashboard'>Profile</Link>
           </li>
           <li>
-            <LogoutLink >Logout</LogoutLink>
+            <LogoutLink>Logout</LogoutLink>
           </li>
           </>:<>
           <li>
-        <LoginLink>Sign in</LoginLink>
+        <LoginLink>Login</LoginLink>
         </li>
-        <li>
-        <RegisterLink>Sign up</RegisterLink>
-        </li>
+       
           </>
         }
         
