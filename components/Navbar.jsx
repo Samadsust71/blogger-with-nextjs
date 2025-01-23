@@ -1,0 +1,42 @@
+import Link from "next/link"
+import {RegisterLink, LoginLink,LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+
+
+
+const Navbar = async() => {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+  return (
+    <div className="bg-gray-900 text-white">
+        <nav  className="flex justify-between container mx-auto py-5">
+      <h1 className="text-3xl font-bold">Blogger.</h1>
+      <ul className="flex items-center gap-6">
+        <li>
+            <Link href="/">Home</Link>
+        </li>
+        {
+          user? <>
+          <li>
+            <Link href='/dashboard'>Profile</Link>
+          </li>
+          <li>
+            <LogoutLink >Logout</LogoutLink>
+          </li>
+          </>:<>
+          <li>
+        <LoginLink>Sign in</LoginLink>
+        </li>
+        <li>
+        <RegisterLink>Sign up</RegisterLink>
+        </li>
+          </>
+        }
+        
+      </ul>
+    </nav>
+    </div>
+  )
+}
+
+export default Navbar
