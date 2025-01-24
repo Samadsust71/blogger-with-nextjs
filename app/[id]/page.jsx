@@ -12,7 +12,7 @@ const Post = async ({params}) => {
         <span>Id: {post?.id}</span>
         <span>UserId: {post?.userId}</span>
       </div>
-      <h1 className="text-2xl font-bold">Title: {post?.title}</h1>
+      <h1 className="text-2xl font-bold text-center">Title: {post?.title}</h1>
       <p className="text-white/80 mt-6 w-[70%] text-center"> Description :{post?.body}</p>
     </div>
   )
